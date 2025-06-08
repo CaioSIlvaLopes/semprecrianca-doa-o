@@ -12,8 +12,8 @@ import requests
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
-def principal_view(request):
-    return render(request, 'principal.html')
+def index_view(request):
+    return render(request, 'index.html')
 
 
 def validar_cpf_api(cpf):
