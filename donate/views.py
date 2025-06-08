@@ -80,7 +80,7 @@ def criar_pagamento(request):
                 'quantity': 1,
             }],
             mode='payment',
-            success_url='',
+            success_url='https://semprecrianca-doa-o.onrender.com/pagamentos/',
             cancel_url='https://semprecrianca-doa-o.onrender.com/pagamentos/',
         )
         return JsonResponse({'id': session.id})
@@ -101,7 +101,7 @@ def create_checkout_session(request):
             'quantity': 1,
         }],
         mode='payment',
-        success_url='',
+        success_url='https://semprecrianca-doa-o.onrender.com/pagamentos/',
         cancel_url='https://semprecrianca-doa-o.onrender.com/pagamentos/',
     )
     return JsonResponse({'id': session.id})
