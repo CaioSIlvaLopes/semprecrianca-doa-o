@@ -1,0 +1,816 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sempre Criança - Niteroi</title>
+    <style>
+        :root {
+            --cor-primaria: #e74c3c;
+            --cor-secundaria: rgba(31, 31, 255, 0.829);
+            --cor-base: white;
+            --cor-terciaria: #f1c40f;
+            --tamanho-fonte-titulo: 35px;
+            --tamanho-fonte-subtitulo: 25px;
+            --tamanho-fonte-texto: 17px;
+            --btn-cor: #f1c40f;
+            --btn-cor-hover: #f39c12;
+            --fonte-padrao: cursive;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--fonte-padrao)
+        }
+
+        /* 
+            Estilos Gerais 
+        */
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        /* 
+            Header 
+        */
+        header {
+            background-color: var(--cor-primaria);
+            color: var(--cor-base);
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-foto {
+            max-width: 60%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--cor-base);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: var(--tamanho-fonte-texto);
+        }
+
+        nav ul li a:hover {
+            color: var(--cor-terciaria);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header.scroll {
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        header .logo-foto.scroll-logo {
+            max-width: 60%;
+            transition: all 0.3s ease;
+        }
+
+
+        header ul li a.scroll-nav {
+            font-size: 14px;
+        }
+
+
+        /* 
+            home Section 
+        */
+
+        .home {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/random/1200x600/?fotos,family');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--cor-base);
+            margin-top: 60px;
+        }
+
+        .container-home-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .home h1 {
+            font-size: var(--tamanho-fonte-titulo);
+            margin-bottom: 20px;
+            color: var(--cor-base);
+        }
+
+        .home h2 {
+            font-size: var(--tamanho-fonte-subtitulo);
+            color: #f1f5f9;
+        }
+
+        .home p {
+            font-size: var(--tamanho-fonte-texto);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--cor-terciaria);
+            color: #2c3e50;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--btn-cor-hover);
+        }
+
+        /* 
+            Sobre Nós 
+        */
+        .about-container h2 {
+            margin-bottom: 10px;
+            font-size: var(--tamanho-fonte-titulo);
+        }
+
+        .about-container a {
+            font-size: var(--tamanho-fonte-texto);
+        }
+
+        .about-container h3 {
+            font-size: var(--tamanho-fonte-subtitulo);
+        }
+
+        .about-us {
+            background-color: var(--cor-base);
+        }
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            text-align: justify;
+            font-size: var(--tamanho-fonte-texto);
+        }
+
+        .about-text a {
+            font-size: var(--tamanho-fonte-texto);
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+        }
+
+        .myButton {
+            background-color: var(--btn-cor);
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer;
+            color: #000000;
+
+            font-size: var(--tamanho-fonte-texto);
+            font-weight: bold;
+            padding: 10px 30px;
+            text-decoration: none;
+        }
+
+        .myButton:hover {
+
+            background-color: var(--btn-cor-hover);
+        }
+
+        .myButton:active {
+            position: relative;
+            top: 1px;
+        }
+
+        /*
+        sobre nos parte 2
+        */
+        /* .about-us-2 {
+            background-color: #f1f5f9;
+        }
+
+        .about-container2 {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            gap: 10px
+        }
+
+        .numero-about2 {
+            font-size: 50px;
+           
+            color: rgba(31, 31, 255, 0.829);
+            gap: 20px;
+        }
+
+        .texto-about2 {
+            font-size: 15px;
+            align-items: center;
+        }
+
+        .tick-cards {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 10px
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+        }
+
+        .about-container2 p {
+            text-align: center;
+        } */
+
+        /* 
+        .about-us-2 {
+        background-color: #fff;
+        padding: 60px 20px;
+        
+        color: #333;
+        }
+
+        .about-container2 {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        }
+
+        .about-container2 h3 {
+        color: #e63946;
+        font-size: 2.2em;
+        margin-bottom: 15px;
+        }
+
+        .about-container2 p {
+        font-size: 1.1em;
+        margin-bottom: 40px;
+        color: #555;
+        line-height: 1.6em;
+        }
+
+        /* Estilo dos cards de destaque */
+
+        .about-container2 h3 {
+            font-size: var(--tamanho-fonte-subtitulo);
+            text-align: center;
+        }
+
+        .about-texto-2 {
+            font-size: var(--tamanho-fonte-texto);
+            text-align: center;
+        }
+
+        .tick-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            padding: 30px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            width: 260px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 125px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+
+        .numero-about2 {
+            font-size: var(--tamanho-fonte-titulo);
+            font-weight: bold;
+            color: #e63946;
+            margin-bottom: 5px;
+        }
+
+        .texto-about2 {
+            font-size: var(--tamanho-fonte-texto);
+            color: #444;
+            line-height: 1.4em;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .tick-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 90%;
+            }
+        }
+
+        Fotos do projeto */ .fotos {
+            background-color: white;
+        }
+
+        .fotos{
+            background-color: var(--cor-base);
+        }
+        .fotos-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+
+
+        .foto-card {
+            width: 320px;
+            background-color: white;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+
+        .foto-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .foto-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .foto-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .foto-card:hover .foto-image img {
+            transform: scale(1.05);
+        }
+
+        .foto-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .foto-info h3 {
+            color: #e74c3c;
+        }
+
+        /* 
+            Outras formas de ajudar 
+        */
+        /* .process {
+            background-color: white;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 0 15px;
+            margin-bottom: 30px;
+        }
+
+    
+        /* Estilo geral da seção */
+        .process {
+            background-color: #f9f9f9;
+            padding: 60px 20px;
+
+        }
+
+        /* Container central */
+        .process .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Título da seção */
+        .process h2 {
+            text-align: center;
+            color: black;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        /* Grid de etapas */
+        .steps {
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Cada etapa */
+        .step {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            position: relative;
+            transition: transform 0.3s ease;
+
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Número da etapa */
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: #e63946;
+            color: white;
+            font-weight: bold;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.2em;
+            position: absolute;
+            top: -25px;
+            left: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Título e parágrafo de cada etapa */
+        .step h3 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+            color: #333;
+        }
+
+        .step p {
+            color: #555;
+            font-size: 1em;
+            line-height: 1.5em;
+        }
+
+        /* botao de envio */
+        .donation-cta {
+            background-color: white;
+            padding: 80px 20px;
+            text-align: center;
+            color: #2e2e2e;
+
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .donation-cta h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #c1121f;
+        }
+
+        .donation-cta p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .btn-doar {
+            background-color: var(--btn-cor);
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer;
+            color: #000000;
+
+            font-size: var(--tamanho-fonte-texto);
+            font-weight: bold;
+            padding: 10px 30px;
+            text-decoration: none;
+        }
+
+        .btn-doar:hover {
+            background-color: var(--btn-cor-hover);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            
+            .about-content {
+                flex-direction: column;
+            }
+
+            .steps {
+                flex-direction: column;
+            }
+
+            .step {
+                margin-bottom: 30px;
+            }
+
+            .home h1 {
+                font-size: 36px;
+            }
+            .fotos-grid{
+                
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    <img class="logo-foto" src="{% static 'images/logo.png' %}" alt="Logo">
+
+                </a>
+            </div>
+
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about-us">Sobre</a></li>
+                    <li><a href="#criancas">Crianças</a></li>
+                    <li><a href="#processo">Processo</a></li>
+                    <li><a href="{% url 'donate' %}">Doar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Seção Home -->
+    <section id="home"class="home">
+        <div class="container home-content">
+            <h1>Doe Amor, Transforme Vidas de Crianças Agora</h1>
+            <h2>Milhares de crianças vivem em situação de vulnerabilidade<br> e precisam de ajuda para se alimentar,
+                estudar e ter um futuro digno. Sua doação pode mudar isso.</h2>
+            <p>Ajude uma Criança a Ter um Futuro Melhor</p>
+            <a href="{% url 'donate' %}" class="btn">Quero Doar</a>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="about-us" class="about-us">
+        <div class="container about-container">
+            <h2>Sobre Nós</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>O Sempre Criança é um projeto social sem fins lucrativos, que desenvolve atividades para promover
+                        o
+                        voluntáriado através de ações em prol do bem-estar de diversas crianças de comunidades carentes
+                        de Niterói e
+                        São Gonçalo.</p>
+                    <p>O Sempre Criança é uma associação civil sem fins lucrativos, sem qualquer vínculo religioso ou
+                        partidário, e que é totalmente gerido e realizado por voluntários.
+                        Nosso objetivo é estimular a cultura do voluntariado e dar suporte a instituições de apoio à
+                        infância, levando afeto, esperança e exemplos de bons valores para crianças.
+                        Atuando desde 2002, já beneficiamos diretamente mais de 15 mil crianças e de 8 mil voluntários.
+                    </p>
+                    <a href="https://semprecrianca.org/" class="myButton" target="_blank"
+                        rel="noopener noreferrer">Nosso site</a>
+
+                </div>
+                <div class="about-image">
+                    <img src="{% static 'images/foto1.jpg' %}" alt="Família feliz">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about-us" class="about-us-2">
+        <div class="container about-container2">
+            <h3>Desde 2002</h3>
+            <p class="about-texto-2">Levamos afeto, esperança e exemplos de bons valores para crianças, além de
+                estimularmos a cultura do
+                voluntariado e dar suporte a instituições de apoio à infância. E os números só crescem!</p>
+
+            <div class="tick-cards">
+                <div class="card">
+                    <img src="{% static 'images/calendarNew.png' %}" alt="calendario">
+                    <p class="numero-about2">21</p>
+                    <p class="texto-about2">Anos<br>de Atividade</p>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/dados.png' %}" alt="dados">
+                    <p class="numero-about2">20500</p>
+                    <p class="texto-about2">Crianças<br>beneficiadas</p>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/childs.png' %}" alt="crianças">
+                    <p class="numero-about2">10200</p>
+                    <p class="texto-about2">Voluntarios</p>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/houseNew.png' %}" alt="casa">
+                    <p class="numero-about2">57</p>
+                    <p class="texto-about2">Intituições<br>atendiddas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fotos do projeto -->
+    <section id="criancas" class="fotos">
+        <div class="container">
+            <h2>Algumas imagens do projeto</h2>
+            <div class="fotos-grid">
+                <div class="foto-card">
+                    <img src="{% static 'images/foto2.jpg' %}" alt="Criança para adoção">
+                </div>
+
+                <div class="foto-card">
+                    <img src="{% static 'images/foto3.jpg' %}" alt="Criança para adoção">
+                </div>
+
+                <div class="foto-card">
+                    <img src="{% static 'images/foto4.jpg' %}" alt="Criança para adoção">
+                </div>
+
+                <div class="foto-card">
+                    <img src="{% static 'images/foto5.jpg' %}" alt="Irmãos para adoção">
+                </div>
+                <div class="foto-card">
+                    <img src="{% static 'images/foto6.jpg' %}" alt="Criança para adoção">
+                </div>
+                <div class="foto-card">
+                    <img src="{% static 'images/foto7.jpg' %}" alt="Criança para adoção">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outras formas de ajudar -->
+    <section id="processo" class="process">
+        <div class="container">
+            <h2>Outras formas de ajudar</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Doações de itens essenciais</h3>
+                    <p>Você pode doar alimentos, roupas, brinquedos, material escolar e produtos de higiene para
+                        crianças em situação de vulnerabilidade.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Seja voluntário</h3>
+                    <p>Ofereça seu tempo para dar aulas, organizar atividades, contar histórias ou simplesmente estar
+                        presente para apoiar e acolher.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Divulgue a causa</h3>
+                    <p>Compartilhe nossas campanhas nas redes sociais, com amigos, familiares ou em sua empresa. Quanto
+                        mais gente souber, maior o impacto!</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Contribua com seus talentos</h3>
+                    <p>Use suas habilidades (como design, fotografia, TI, contabilidade, direito) para apoiar os
+                        bastidores do projeto.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Parcerias solidárias</h3>
+                    <p>Empresas, escolas e grupos podem promover campanhas, bazares ou eventos para arrecadar fundos e
+                        doações.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>Divulgar e engajar</h3>
+                    <ul>
+                        <li>Compartilhar a causa nas redes sociais</li>
+                        <li>Convidar amigos e familiares para doar</li>
+                        <li>Criar campanhas de arrecadação (vaquinha)</li>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Doe agora -->
+    <section id="call-to-action" class="donation-cta">
+        <div class="cta-container">
+            <h2>Você pode mudar uma vida agora mesmo.</h2>
+            <p>Doe esperança. Doe educação. Doe dignidade.</p>
+            <p>Clique no botão abaixo e faça parte dessa transformação.</p>
+            <a href="{% url 'donate' %}" class="btn-doar">DOE AGORA</a>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <p>Lar do Coração &copy; 2023 - Todos os direitos reservados</p>
+            <p>Contato: contato@lardocoracao.org.br | (11) 2345-6789</p>
+            <p>CNPJ: 12.345.678/0001-99</p>
+            <p style="margin-top: 20px; font-size: 0.9em;">Trabalhamos em conformidade com o ECA (Estatuto da Criança e
+                do Adolescente)</p>
+        </div>
+    </footer>
+
+    <script>
+       
+    </script>
+</body>
+
+</html>
