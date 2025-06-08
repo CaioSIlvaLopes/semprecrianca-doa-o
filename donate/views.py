@@ -80,8 +80,8 @@ def criar_pagamento(request):
                 'quantity': 1,
             }],
             mode='payment',
-            success_url='http://localhost:8000/sucesso/',
-            cancel_url='http://localhost:8000/pagamentos/',
+            success_url='',
+            cancel_url='https://semprecrianca-doa-o.onrender.com/pagamentos/',
         )
         return JsonResponse({'id': session.id})
     except Exception as e:
@@ -101,8 +101,8 @@ def create_checkout_session(request):
             'quantity': 1,
         }],
         mode='payment',
-        success_url='https://sua-url.com/sucesso',
-        cancel_url='https://sua-url.com/cancelado',
+        success_url='',
+        cancel_url='https://semprecrianca-doa-o.onrender.com/pagamentos/',
     )
     return JsonResponse({'id': session.id})
 
